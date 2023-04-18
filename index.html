@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emi Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1 style="text-align: center;">EMI Calculator</h1>
+    <div class="grid-container">
+        <label for="amount" class="grid-item grid-item-1">Amount</label>
+        <input type="number" id="amount" class="grid-item grid-item-2">
+        <label for="interest" class="grid-item grid-item-3">Interest Rate</label>
+        <input type="number" id="interest" class="grid-item grid-item-4">
+        <label for="months" class="grid-item grid-item-5">Months</label>
+        <input type="number" id="months" class="grid-item grid-item-6">
+        <button class="grid-item grid-item-7" onclick="calculateEMI()">Calculate</button>
+        <!-- <label for="emi" class="grid-item grid-item-8"">EMI</label> -->
+        <!-- <input readonly type="number" class="grid-item grid-item-9" id="emi"> -->
+    </div>
+    
+    <h2 id="result" style="text-align: center;"></h2>
+
+    <script>
+        function calculateEMI(){
+            var principalAmount = parseFloat(document.getElementById("amount").value);
+            var interestRate = parseFloat(document.getElementById("interest").value);
+            var numberOfMonths = parseInt(document.getElementById("months").value);
+
+            var emiResult = (principalAmount + (principalAmount*interestRate*0.01))/numberOfMonths;
+
+            // document.getElementById("emi").value = emiResult.toFixed(2);
+            document.getElementById("result").innerHTML = "EMI: " + emiResult.toFixed(2);
+
+        }
+
+    </script>
+
+</body>
+</html>
